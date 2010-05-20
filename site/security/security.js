@@ -14,6 +14,8 @@ OpenLayers.Util.onImageLoadErrorColor = "transparent";
 
 function mD(e) {
   var originalElement = e.srcElement || e.originalTarget;
+  //Fixes the chrome error issue, insure why however - could be a case of the error just going way with no negligable effect.
+  if (! originalElement.href) { return; }
   var href = originalElement.href;
   if (originalElement.nodeName == "A" && href.match("http://www.openstreetmap.org/browse/")) {
     href = href.replace('http://www.openstreetmap.org/browse/','http://www.openstreetmap.org/api/0.6/');
@@ -156,4 +158,5 @@ function on_feature_hover(feature) {
   //$("status").innerHTML = text;
 }  
 
+//New Functions
 
